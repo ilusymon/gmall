@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.gmall.product.mapper.SkuAttrValueMapper">
+    <select id="selectSearchAttr" resultMap="selectSearchAttrMap">
+        SELECT
+            bi.id as attr_id ,bi.attr_name , bv.value_name as attr_value
+        FROM
+            base_attr_info bi,
+            base_attr_value bv,
+            sku_attr_value sv
+        WHERE
+            bi.id = bv.attr_id
+        AND sv.value_id = bv.id
+        and sv.sku_id = #{skuId}
+    </select>
+
+    <resultMap id="selectSearchAttrMap" type="com.atguigu.gmall.model.list.SearchAttr" autoMapping="true">
+
+    </resultMap>
+
+</mapper>

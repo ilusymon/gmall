@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+        .green{
+            height: 100px;
+            width: 100px;
+            background-color: green;
+        }
+
+    </style>
+</head>
+<body>
+<h1>thymeleaf测试页面</h1>
+
+<h3>取值</h3>
+
+<input th:value="${hello}"/>
+<input th:value="${requestValue}"/>
+<input th:value="${session.sessionValue}"/>
+
+<h3>判断</h3>
+
+<input th:if="${1==1}" value="我存在"/>
+
+<div th:class="(${1==0}?red:green)"></div>
+
+<h3>循环</h3>
+<input th:each="str:${list}" th:value="${str}"/>
+
+<p th:each="p:${list}">
+    <input th:value="${p}"/>
+</p>
+
+
+<h3>内嵌</h3>
+<div th:include="testInner::a"></div>
+
+
+<h3>交互</h3>
+<a th:href = "'javascript:a(\''+${obj}+'\')'">点我</a>
+
+<!--javascript:a(你好)-->
+<!--javascript:a('你好')-->
+
+
+
+<script language="JavaScript">
+    function a(obj) {
+        alert(obj);
+    }
+</script>
+</body>
+</html>

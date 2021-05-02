@@ -1,0 +1,11 @@
+
+#配置中心独立地址
+spring.cloud.nacos.config.server-addr=192.168.222.2:8848
+# 服务发现的环境
+spring.cloud.nacos.discovery.namespace=0134b3a5-72e0-4523-ac65-9212b8e1dd30
+# 服务的配置文件的环境
+spring.cloud.nacos.config.namespace=0134b3a5-72e0-4523-ac65-9212b8e1dd30
+# 服务的配置文件名
+spring.cloud.nacos.config.name=service-test
+# 服务的名，备用配置文件名
+spring.application.name=service-test
